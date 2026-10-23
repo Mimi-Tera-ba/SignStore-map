@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全国 サインストアマップ | 手話カフェ・手話バー・筆談対応店が探せる（ミミノバ）</title>
+  <meta name="description" content="全国の手話カフェ、手話バー、筆談対応飲食店、手話サロン・教室を地図と一覧で簡単検索！聴覚障害者（ろう者・難聴者）や手話学習者、視覚的コミュニケーションを求める方が安心して訪れられる全国サインストア情報マップです。">
+  
+  <!-- OGP (SNSシェア用) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://miminoba.jp/sign-map/">
+  <meta property="og:title" content="🤟 全国 サインストアマップ | 手話カフェ・手話バー・筆談対応店（ミミノバ）">
+  <meta property="og:description" content="全国の手話カフェ、手話バー、筆談対応飲食店、手話サロン・教室を地図と一覧で簡単検索！聴覚障害者や手話学習者が安心して訪れられる全国サインストア情報マップです。">
+  <meta property="og:image" content="https://miminoba.jp/sign-map/ogp.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🤟 全国 サインストアマップ | 手話カフェ・手話バー・筆談対応店（ミミノバ）">
+  <meta name="twitter:description" content="全国の手話カフェ、手話バー、筆談対応飲食店、手話サロン・教室を地図と一覧で簡単検索！聴覚障害者や手話学習者が安心して訪れられる全国サインストア情報マップです。">
+  <meta name="twitter:image" content="https://miminoba.jp/sign-map/ogp.jpg">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=7">
+</head>
+<body>
+  <!-- スリム化ヘッダー -->
+  <header class="slim-header">
+    <div class="header-inner">
+      <div class="header-nav-wrap">
+        <a href="https://miminoba.jp/" class="parent-site-link" title="ミミノバ TOPへ戻る">
+          <span class="back-arrow">←</span> ミミノバ
+        </a>
+        <a href="https://miminoba.jp/map/" class="sibling-link" title="全国 障害者割引マップを見る">
+          🗺️ 割引マップ
+        </a>
+      </div>
+      
+      <div class="header-title-box">
+        <h1>🤟 全国 サインストアマップ</h1>
+        <span class="header-tag" id="totalCountTag">72店舗 稼働中</span>
+      </div>
+
+      <div class="header-note">
+        ☕ 最新の営業日・営業時間は各公式SNS等をご確認ください
+      </div>
+    </div>
+  </header>
+  
+  <main>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title-row">
+          <h2>店舗・スポット一覧</h2>
+          <span id="storeCount" class="count-badge">稼働中 72件</span>
+        </div>
+
+        <!-- 4大カテゴリー・チップ（実稼働店舗数で表示） -->
+        <div class="genre-chips-container" id="genreChips">
+          <button class="genre-chip active" data-genre="all">すべて <span class="chip-count">72</span></button>
+          <button class="genre-chip" data-genre="cafe">☕ カフェ・飲食店 <span class="chip-count">48</span></button>
+          <button class="genre-chip" data-genre="bar">🍸 バー・居酒屋 <span class="chip-count">6</span></button>
+          <button class="genre-chip" data-genre="other">✨ その他（教室・サロンほか） <span class="chip-count">18</span></button>
+        </div>
+      </div>
+      
+      <div id="listContainer" class="list-container">
+        <!-- 稼働中店舗（JIS順）→ 閉業・休業店舗（末尾）の順で生成されます -->
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="footer-action-grid">
+          <!-- 情報提供・掲載依頼窓口 -->
+          <a href="https://forms.gle/BYxhmhi224nwxM6A6" target="_blank" rel="noopener noreferrer" class="footer-action-btn community-action-btn" title="新しい手話店舗の推薦や情報修正を報告する">
+            <span class="action-icon">💡</span>
+            <div class="action-text-wrap">
+              <span class="action-title">情報提供・掲載依頼</span>
+              <span class="action-sub">フォームへ報告 ↗</span>
+            </div>
+          </a>
+
+          <!-- 姉妹サービス: 割引マップへの回遊 -->
+          <a href="https://miminoba.jp/map/" target="_blank" rel="noopener noreferrer" class="footer-action-btn discount-action-btn" title="全国のレジャー・観光割引を探す">
+            <span class="action-icon">🗺️</span>
+            <div class="action-text-wrap">
+              <span class="action-title">障害者割引マップ</span>
+              <span class="action-sub">全国1,390件 ↗</span>
+            </div>
+          </a>
+        </div>
+        <p class="footer-legal-note">※掲載内容の変更・新規掲載のご希望はお気軽にフォームへお寄せください</p>
+      </div>
+    </aside>
+    
+    <div id="map" class="map-container"></div>
+  </main>
+
+  <!-- Google Maps JS API (Placesライブラリ付き) -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCN_Xslxoq4tfmgtssIPKHyixBWPQUpiRQ&libraries=places"></script>
+  <!-- データとアプリのロジック -->
+  <script src="data.js?v=7"></script>
+  <script src="app.js?v=7"></script>
+</body>
+</html>
